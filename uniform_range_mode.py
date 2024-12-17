@@ -107,7 +107,24 @@ class UniformRangeModeTab(QWidget):
         self.inputSignalViewer.plot(self.time_values, data, pen='g')
         self.inputSignalViewer.enableAutoRange()
         self.plot_spectrogram(self.data, self.input_spectrogram)
+        # Calculate and update frequency ranges for each slider
+        self.update_slider_frequency_ranges()
         self.update_output()  # Update the output based on the new data
+
+    def update_slider_frequency_ranges(self):
+        """Calculate and update frequency ranges for sliders."""
+        nyquist_freq = self.sampling_rate / 2  # Nyquist frequency
+        num_sliders = len(self.sliders)
+        segment_size = nyquist_freq / num_sliders
+
+        # Update each slider label to include its frequency range
+        for i, slider_layout in enumerate(self.layout.children()):
+            start_freq = round(i * segment_size, 2)
+            end_freq = round((i + 1) * segment_size, 2)
+
+            # Find the QLabel for the slider label and update its text
+            slider_label = slider_layout.itemAt(2).widget()  # The third widget is the label
+            slider_label.setText(f" {start_freq}Hz - {end_freq}Hz")
 
 
 
@@ -152,21 +169,24 @@ class UniformRangeModeTab(QWidget):
         # Compute spectrogram
         frequencies, times, Sxx = spectrogram(audio, fs=self.sampling_rate, nperseg=256, noverlap=128, nfft=1024)
 
+        Sxx = np.maximum(Sxx, 1e-8)  # Replace small values with a threshold
+        Sxx_log = 10 * np.log10(Sxx)
         # Convert to dB scale
-        Sxx_log = 10 * np.log10(Sxx + 1e-10)
+        # Sxx_log = 10 * np.log10(Sxx + 1e-10)
 
         # Check if all values are zero
-        if Sxx_log.max() == Sxx_log.min():
-            Sxx_log_normalized = np.zeros_like(Sxx_log)  # Set normalized array to zero if all magnitudes are zero
-        else:
-            # Normalize for color mapping
+        if Sxx_log.max() != Sxx_log.min():
             Sxx_log_normalized = (Sxx_log - Sxx_log.min()) / (Sxx_log.max() - Sxx_log.min())
+        else:
+            Sxx_log_normalized = np.zeros_like(Sxx_log)  # All-zero case
+
 
         # Define custom colormap
         colormap = ColorMap(
-            [0, 0.25, 0.5, 0.75, 1],
+            [0, 0.1, 0.25, 0.5, 0.75, 1],
             [
                 (0, 0, 128, 255),  # Dark Blue
+                (0, 0, 255, 255),  # Dark Blue
                 (0, 255, 255, 255),  # Cyan
                 (255, 255, 0, 255),  # Yellow
                 (255, 128, 0, 255),  # Orange
