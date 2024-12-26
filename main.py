@@ -551,7 +551,9 @@ class SignalEqualizerUI(QMainWindow):
             (2, 1): 'triangle',
             (2, 2): 'monkey',
             (3, 1): 'bass',
-            (3, 2): 'bat'
+            (3, 2): 'bat',
+            (4,2):'marcillo',
+            (5,2):'ziad'
         }
 
         # Get the instrument based on index and tab.
