@@ -16,8 +16,8 @@ class AnimalSoundsModeTab(QWidget):
         self.setLayout(self.layout)
 
     def create_sliders(self):
-        animal_names = ["Whale", "Frog", "Monkey", "Bat"]  # Names for the sliders
-        num_sliders = 4
+        animal_names = ["Whale", "Frog", "Monkey", "Bat","Marcilllo",'Ziad']  # Names for the sliders
+        num_sliders = 6
 
         for i in range(num_sliders):
             slider_layout = QVBoxLayout()

@@ -82,19 +82,24 @@ class SignalEqualizerUI(QMainWindow):
             'whale': [(0, 800)],
             'frog': [(800, 2000)],
             'monkey': [(2000, 4000)],
-            'bat': [(4000, 22000)]
+            'bat': [(4000, 22000)],
+            'marcillo':[(4000, 22000)],
+            'ziad':[(4000, 22000)]
         }
         self.instruments_gain = {
             'xylophone': 1.0,
             'trombone': 1.0,
             'triangle': 1.0,
-            'bass': 1.0
+            'bass': 1.0,
+
         }
         self.animal_gain = {
             'whale': 1.0,
             'frog': 1.0,
             'monkey': 1.0,
-            'bat': 1.0
+            'bat': 1.0,
+            'marcillo': 1.0,
+            'ziad': 1.0
         }
 
         # تهيئة instruments_masks
