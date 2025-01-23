@@ -76,7 +76,7 @@ A robust desktop application designed to modify frequency components of audio si
 - **main.py**: Implementation of the Main Functio
 ```
 
----
+
 
 ## **⚙️ Installation**
 
