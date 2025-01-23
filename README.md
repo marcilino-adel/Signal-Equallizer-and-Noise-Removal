@@ -68,7 +68,9 @@ A robust desktop application designed to modify frequency components of audio si
 
 ### **💧 Directories**
 
-- **images/**: Screenshots and illustrations.
+- **images/**: Screenshots .
+- **data/**: Sound files.
+
 
 ### **🔂 Files**
 - **README.md**: Project overview and setup instructions.
@@ -105,10 +107,10 @@ python main.py
 ## **🎨 Screenshots**
 
 ### 🎿 **Equalizer Interface**  
-![Equalizer Interface](images/equalizer-interface.png)
+![Equalizer Interface](https://github.com/marcilino-adel/Signal-Equallizer-and-Noise-Removal/blob/30c654719ec51ddbbd51f5abff8a6fe24d38694c/images/Signal%20Equalizer%201.png)
 
 ### 🔊 **Spectrogram & Signal Views**  
-![Spectrogram and Signal Views](images/signal-views.png)
+![Spectrogram and Signal Views](https://github.com/marcilino-adel/Signal-Equallizer-and-Noise-Removal/blob/30c654719ec51ddbbd51f5abff8a6fe24d38694c/images/Signal%20Equalizer%202.png)
 
 ---
 ## **🔒 License**
