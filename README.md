@@ -74,11 +74,15 @@ A robust desktop application designed to modify frequency components of audio si
 - **README.md**: Project overview and setup instructions.
 - **requirements.txt**: List of dependencies.
 - **main.py**: Implementation of the Main Functio
+
+
+
 ```
 
----
 
-## **⚙️ Installation**
+
+
+### **⚙️ Installation**
 
 ### 1️⃣ **Clone the Repository**
 ```bash
